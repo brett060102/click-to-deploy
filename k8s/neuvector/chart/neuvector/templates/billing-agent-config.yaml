@@ -59,6 +59,6 @@ data:
     - name: instance_time_heartbeat
       heartbeat:
         metric: time
-        intervalSeconds: 3600
+        intervalSeconds: 10
         value:
           int64Value: 1

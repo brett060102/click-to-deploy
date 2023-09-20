@@ -32,7 +32,15 @@ spec:
         configMap:
           name: ubbagent-config
       containers:
-      # GCMP billingagent container
+      # Include debuggiing container with useful commands
+      - name: csp-debug
+        image: "gcr.io/suse-gce-test/workloads/dev-env:latest"
+        imagePullPolicy: "IfNotPresent"
+        tty: true
+        stdin: true
+        args:
+        - sleep
+        - "1000000"
       - name: ubbagent
         image: "{{ .Values.ubbagent.image.repository }}:{{ .Values.ubbagent.image.tag }}"
         imagePullPolicy: "{{ .Values.ubbagent.image.imagePullPoliicy }}"
